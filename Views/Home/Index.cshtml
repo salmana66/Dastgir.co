@@ -1,0 +1,301 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    
+}
+    <!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="pull-left">
+                <h3 class="panel-title"> Materal Requisition Form </h3>
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-minus"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-window-maximize"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-close"></i> </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <section class="panel panel-default no-background-bg">
+                        <div class="panel-body">
+                            <form class="form-horizontal ng-pristine ng-valid" role="form">
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Req#</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Req#">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Description</label>
+                                    <div class="col-sm-9 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Description">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Date</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Date">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Required Date</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Required Date">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">MR Status</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <span class="ui-select">
+                                            <select>
+                                                <option value="Mustard">Mustard</option>
+                                                <option value="Ketchup">Ketchup</option>
+                                                <option value="Barbecue">Barbecue</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                            </form>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-4 pull-right">
+                    <section class="panel panel-default no-background-bg">
+                        <div class="panel-body">
+                            <form class="form-horizontal ng-pristine ng-valid" role="form">
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-4 no-gutters control-label">Priorty</label>
+                                    <div class="col-sm-8 no-gutters">
+                                        <span class="ui-select">
+                                            <select>
+                                                <option value="Mustard">Mustard</option>
+                                                <option value="Ketchup">Ketchup</option>
+                                                <option value="Barbecue">Barbecue</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputPassword3" class="col-sm-4 no-gutters control-label">Requested By</label>
+                                    <div class="col-sm-8 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Requested By">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-4 no-gutters control-label">Deliever To</label>
+                                    <div class="col-sm-8 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Deliever To">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-4 no-gutters control-label">Justification</label>
+                                    <div class="col-sm-8 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Justification">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style=" text-align:center;"><i class="fa fa-plus" aria-hidden="true"></i></th>
+                                    <th>Item Code</th>
+                                    <th>Item Description</th>
+                                    <th>Qty.</th>
+                                    <th>UOM </th>
+                                    <th>Needby </th>
+                                    <th>Remarks</th>
+                                    <th>Warehouse</th>
+                                    <th>Bin#</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background:#d5d6d9; width:30px; text-align:center;">1</td>
+                                    <td><input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text"></td>
+                                    <td>
+                                        <input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text">
+                                    </td>
+                                    <td>
+                                        <input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text">
+                                    </td>
+                                    <td>
+                                        <input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text">
+                                    </td>
+                                    <td>
+                                        <input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text">
+                                    </td>
+                                    <td><input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" disabled="" value="disabled" type="text"></td>
+                                    <td style="text-align:center;"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td style="background:#d5d6d9; text-align:center;">2</td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td style="text-align:center;"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td style="background:#d5d6d9; text-align:center;">3</td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td style="text-align:center;"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td style="background:#d5d6d9; text-align:center;">4</td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td style="text-align:center;"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td style="background:#d5d6d9; text-align:center;">5</td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td><input class="form-control tdtext-fld-height" type="text"></td>
+                                    <td style="text-align:center;"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <section class="panel panel-default btm-background-bg">
+                        <div class="panel-body">
+                            <form class="form-horizontal ng-pristine ng-valid" role="form">
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Item Code</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Item Code">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Warehouse ID</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Warehouse ID">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Description</label>
+                                    <div class="col-sm-9 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Description">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                            </form>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <section class="panel panel-default btm-background-bg">
+                        <div class="panel-body">
+                            <form class="form-horizontal ng-pristine ng-valid" role="form">
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Qty.</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Qty.">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Stock Qty.</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Stock Qty.">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Need By</label>
+                                    <div class="col-sm-9 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Need By">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                            </form>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <section class="panel panel-default btm-background-bg">
+                        <div class="panel-body">
+                            <form class="form-horizontal ng-pristine ng-valid" role="form">
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Bin#</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Bin#">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">UOM</label>
+                                    <div class="col-sm-4 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="UOM">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Remarks</label>
+                                    <div class="col-sm-9 no-gutters">
+                                        <input class="form-control text-fld-height" placeholder="" type="Remarks">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+</section>
+<!-- /.content -->

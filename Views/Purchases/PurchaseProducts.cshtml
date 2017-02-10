@@ -1,0 +1,268 @@
+﻿@model List<Mob7183.Models.Product>
+@{
+    ViewBag.Title = "Purchase Other Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    @{
+
+        Html.RenderPartial("_AlertBox");
+    }
+    <div class="panel panel-default custom-height">
+        <div class="panel-heading">
+            <div class="pull-left">
+                <h3 class="panel-title"> Other Products Purchase</h3>
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-minus"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-window-maximize"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-close"></i> </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <section class="panel panel-default no-background-bg">
+                        <div class="panel-body ">
+                            <div class="simpledata" id="SimpleData">
+                                <form class="form-horizontal ng-pristine ng-valid" action="/Purchases/AddBalance" id="form1" role="form">
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Date</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height required" required id="" name="Date" type="date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Products</label>
+                                        <div class="col-sm-9 no-gutters">
+                                            <span class="ui-select">
+                                                <select name="ProductId" required class="ProductId required" id="ProductId">
+                                                    <option value="">--Select--</option>
+                                                    @if (Model != null)
+                                                    {
+                                                        foreach (var i in Model)
+                                                        {
+                                                            <option value="@i.Id">@i.ItemName</option> 
+                                                        }
+                                                    
+                                                    }
+                                                    
+                                                    
+                                                </select>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--End Form Group-->
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Item Name</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height required" id="load" placeholder="Item Name.." name="ItemName" type="text">
+                                        </div>
+                                    </div>
+                                    <!--End Form Group-->
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Purchase Price</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height required Numeric pprice" id="profit" placeholder="Purchase Price.." name="PurchasePrice" type="text">
+                                        </div>
+                                    </div>
+                                    <!--End Form Group-->
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Sale Price</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height required Numeric sprice" id="" placeholder="Sale Price.." name="SalePrice" type="text">
+                                        </div>
+                                    </div>
+                                    <!--End Form Group-->
+
+
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Quantity</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height Numeric qty" type="text" id="" placeholder="Enter Quantity.." name="Qty" />
+                                        </div>
+                                    </div>
+                                    <!--End Form Group-->
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Payment</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height Numeric payment" type="text" id="" placeholder="Enter Payment.." name="Payment" />
+                                        </div>
+                                    </div>
+                                    <!--End Form Group-->
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height Numeric balance" type="text" id="" value="0" placeholder="" name="Balance" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <form class="form-horizontal ng-pristine ng-valid form2" id="form2" role="form" style="display:none;">
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Date</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height" type="date" id="PDate" name="Date" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select Product</label>
+                                    <div class="col-sm-9 no-gutters">
+                                        <span class="ui-select">
+                                            <select name="ProductId1" required class="ProductId1 required" id="ProductId1">
+                                                <option value="">--Select--</option>
+                                                @if (Model != null)
+                                                {
+                                                    foreach (var i in Model)
+                                                    {
+                                                        <option value="@i.Id">@i.ItemName</option>
+                                                    }
+
+                                                }
+
+
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-success SearchLoad btn-sm pull-left" type="button" style="margin-top: 20px;"><span class="glyphicon glyphicon-search "></span> Filter Result</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <div class="row form2" style="display:none;">
+                <div class="col-md-12">
+                    <div class="">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style=" text-align:center;"><i class="fa fa-plus" aria-hidden="true"></i></th>
+                                    <th>Date</th>
+                                    <th>Product</th>
+                                    <th>Item Name</th>
+                                    <th>Quantity</th>
+                                    <th>Purchase Price</th>
+                                    <th>Sale Price</th>
+                                    <th>Payment</th>
+                                    <th>Balance</th>
+                                    <th class="action">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="AddGrid"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+</section>
+<!-- /.content -->
+<script>
+    //saving the data
+    $(document).ready(function () {
+        debugger;
+        $('.AddNew').show();
+        $('.Save').show();
+        disabledAll();
+    });
+    $('.AddNew').on('click', function () {
+        $('.Save').show();
+        enabledAll();
+        $('#form1').slideDown();
+        $('.form2').slideUp();
+    });
+        $('.Save').on('click', function () {
+            var _Id = "#SimpleData";
+            var validationFrm = "SimpleData";
+            var Url = '@Url.Action("AddOtherPurchases", "Purchases")';
+            SaveDataSingleObj(_Id, validationFrm, Url);
+
+        });
+
+    $('.Delete').on('click', function () {
+        debugger;
+        var id = $('.id').val().trim();
+        var Url = '@Url.Action("DeleteUser", "User")';
+        DeleteRecord(id, Url);
+    });
+    $('.Search').on('click', function () {
+        $('#form1').slideUp();
+        enabledAll();
+        $('.form2').slideDown();
+        $('.Save').hide();
+    });
+    $('.pprice').on('change', function () {
+        var qty = parseFloat($('.qty').val());
+        var pprice = parseFloat($('.pprice').val());
+        var payment = pprice * qty;
+        $('.payment').val(payment);
+    });
+    $('.qty').on('change', function () {
+        var qty = parseFloat($('.qty').val());
+        var pprice = parseFloat($('.pprice').val());
+        var payment = pprice * qty;
+        $('.payment').val(payment);
+    });
+    $('.payment').on('change', function () {
+        var qty = parseFloat($('.qty').val());
+        var pprice = parseFloat($('.pprice').val());
+        var payable = pprice * qty;
+        var payment = parseFloat($('.payment').val());
+        $('.balance').val(payable-payment);
+    });
+    $('.SearchLoad').live('click', function () {
+        debugger;
+        var date = $('#PDate').val();
+        var pid = $('#ProductId1 :selected').val();
+        var url = '@Url.Action("GetOtherPurchases", "Purchases")';
+        var Data = JSON.stringify({ date: date, pid: pid });
+        debugger;
+        var data = showGridData(Data, url);
+        var GetData = JSON.parse(data);
+        debugger;
+        $('.AddGrid').html('');
+        for (var i = 0; i <= GetData.length; i++)
+        {
+
+          
+            var date1 = GetData[i].Date.split("T");
+            var date2 = date1[0].split("-");
+            var date = date2[2] + "/" + date2[1] + "/" + date2[0];
+            
+            var row = "<tr>"
+                                    +'<td style="background:#d5d6d9; text-align:center;"></td>'
+                                    + '<td><input class="form-control tdtext-fld-height" value="' + date + '" type="text"><input type="hidden" class="id" value="' + GetData[i].Id + '" /></td>'
+                                    +'<td><input class="form-control tdtext-fld-height"  value="'+GetData[i].Product.ItemName+'" type="text"></td>'
+                                    + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].ItemName + '" type="text"></td>'
+                                    + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].Qty + '" type="text"></td>'
+                                    + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].PurchasePrice + '" type="text"></td>'
+                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].SalePrice + '" type="text"></td>'
+                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].Payment + '" type="text"></td>'
+                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].Balance + '" type="text"></td>'
+                                        +'<td class="action" style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>'
+
+
+            "</tr>";
+            $('.AddGrid').append(row);
+        }
+        @*@{if(Session["userrole"] != null)
+          {
+              if(Session["userrole"].ToString() == "Admin")
+              {
+                  <text> $('.action').hide();</text>
+              }
+          }
+
+              }*@
+    });
+</script>

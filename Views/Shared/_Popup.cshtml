@@ -1,0 +1,124 @@
+﻿     <!-- Twitter dilogbox -->
+
+<div class="modal fade" id="segmentModel" role="dialog">
+    <div class="modal-dialog">
+
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Segment</h4>
+            </div>
+            <div class="modal-body modelbody" style="font-weight:bold; font-family:Arial;">
+
+                <table class="table segTable table-bordered table-hover table-striped table-nonfluid  no-wrap width-100-pct">
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Segments
+                        </th>
+                        <th>
+                            Choose Values
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="seg"></td>
+                        <td class="segments"></td>
+                        <td class="company"></td>
+                    </tr>
+
+                </table>
+
+                <h5><span class="message" style="color:red; font-weight:bold; font-family:Arial;"></span></h5>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+
+                    <button class="btn btn-darkgray btn-sm closeId" style="margin-left:5px;" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <button class="btn btn-blue btn-sm pickId"><span class="glyphicon glyphicon-ok"></span> Ok</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!---->
+<div class="modal fade" id="PRLineModel" role="dialog">
+    <div class="modal-dialog">
+
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Segment</h4>
+            </div>
+            <div class="modal-body modelbody" style="font-weight:bold; font-family:Arial;">
+
+                <table class="table segTable table-bordered table-hover table-striped table-nonfluid  no-wrap width-100-pct">
+                    <thead>
+                        <tr class="info">
+                            <th class="text-left">Line #</th>
+                            <th class="text-left ">Req #</th>
+                            <th class="text-left">Item Code</th>
+                            <th class="text-left">Item Description</th>
+                            <th class="text-left">Quantity</th>
+                            <th class="text-left">Unit</th>
+                            <th class="text-left">Date</th>
+                            <th class="text-left">Select</th>
+                        </tr>
+                    </thead>
+                    <tbody class="PopAddGrid1"></tbody>
+                </table>
+
+                <h5><span class="message" style="color:red; font-weight:bold; font-family:Arial;"></span></h5>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+
+                    <button class="btn btn-darkgray btn-sm closeId" style="margin-left:5px;" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <button class="btn btn-blue btn-sm PickPRLines"><span class="glyphicon glyphicon-ok"></span> Ok</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!---->
+
+<div class="DilogboxPopup modal fade" id="DilogboxPopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body modelbody PopUpValidation" id="PopUpValidation">
+
+            </div>
+
+            <div class=" modal-footer modalfooter">
+                <button class=" Update LeaveUpdate btn1 btn btn-blue btn-md " style="margin-bottom: 20px;display:none;"><span class="glyphicon glyphicon-refresh "></span> Update</button>
+                <div class="buttonAppend">
+                    </div>
+                    @*<button type="button" class="btn btn-darkgray btn-md pull-right" data-dismiss="modal">Close</button>*@
+                </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div style="display:none;" id="deleteAlert" title="Delete">
+    <p>Are you sure!</p>
+</div>
+<div style="display:none;" id="AlertSelect" title="Alert">
+    <p class="Alertbox"></p>
+</div>
+
+
+
+
