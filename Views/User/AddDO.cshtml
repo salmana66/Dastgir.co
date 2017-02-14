@@ -1,6 +1,6 @@
-﻿@model List<Mob7183.Models.UserInfo>
+﻿@model List<Mob7183.Models.Distributor>
 @{
-    ViewBag.Title = "Users";
+    ViewBag.Title = "AddDO";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,7 +12,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="pull-left">
-                <h3 class="panel-title"> System Users</h3>
+                <h3 class="panel-title"> Distributors <b>(DOs)</b></h3>
             </div>
             <div class="pull-right">
                 <button type="button" class="btn2 btn-primary"> <i class="fa fa-minus"></i> </button>
@@ -27,58 +27,46 @@
                         <div class="panel-body SimpleData" id="SimpleData">
                             <form class="form-horizontal ng-pristine ng-valid" role="form">
                                 <div class="form-group form-group-margin">
-                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Username</label>
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">DO Name</label>
                                     <div class="col-sm-6 no-gutters">
-                                        <input class="form-control text-fld-height" required id="" placeholder="UserName" name="UserName" type="text">
+                                        <input class="form-control text-fld-height" required id="" placeholder="Distributor Name.." name="Name" type="text">
                                     </div>
                                 </div>
                                 <!--End Form Group-->
                                 <div class="form-group form-group-margin">
-                                    <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Password</label>
+                                    <label for="inputPassword3" class="col-sm-3 no-gutters control-label">CNIC</label>
                                     <div class="col-sm-6 no-gutters">
-                                        <input class="form-control text-fld-height" required id="" placeholder="Password.." name="Password" type="text">
+                                        <input class="form-control text-fld-height" id="" placeholder="CNIC (Optional).." name="CNIC" type="text">
                                     </div>
                                 </div>
                                 <!--End Form Group-->
                                 <div class="form-group form-group-margin">
-                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Email</label>
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Phone</label>
                                     <div class="col-sm-6 no-gutters">
-                                        <input class="form-control text-fld-height" id="" placeholder="Email.." name="Email" type="text">
+                                        <input class="form-control text-fld-height" id="" placeholder="Phone.." name="Phone" type="text">
                                     </div>
                                 </div>
                                 <!--End Form Group-->
-                                <div class="form-group form-group-margin">
-                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">User Role</label>
-                                    <div class="col-sm-9 no-gutters">
-                                        <span class="ui-select">
-                                            <select name="UserRole" required class="UserRole" id="UserRole">
-                                                <option value="">--Select--</option>
-                                                <option value="Admin">Admin</option>
-                                                <option value="User">User</option>
-                                            </select>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group form-group-margin">
-                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Mobile</label>
-                                    <div class="col-sm-6 no-gutters">
-                                        <input class="form-control text-fld-height" id="" placeholder="Mobile.." name="Mobile" type="text">
-                                    </div>
-                                </div>
                                 <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">ChequeNo</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height" id="" placeholder="ChequeNo.." name="ChecqueNo" type="text">
+                                    </div>
+                                </div>
                                 <div class="form-group form-group-margin">
                                     <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Address</label>
                                     <div class="col-sm-9 no-gutters">
                                         <input class="form-control text-fld-height" id="" placeholder="Address.." name="Address" type="text">
                                     </div>
                                 </div>
-                                <!--End Form Group-->
+                            
                                 <!--End Form Group-->
                             </form>
                         </div>
                     </section>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -87,38 +75,42 @@
                             <thead>
                                 <tr>
                                     <th style=" text-align:center;"><i class="fa fa-plus" aria-hidden="true"></i></th>
-                                    <th>UserName</th>
-                                    <th>Password</th>
-                                    <th>Updated Date</th>
-                                    <th>User Role</th>
+                                    <th>Name</th>
+                                    <th>CNIC</th>
+                                    <th>Phone</th>
+                                    <th>Cheque No</th>
                                     <th>Address </th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var list in Model)
+                                @if (Model != null)
                                 {
-                                     <tr>
-                                    <td style="background:#d5d6d9; text-align:center;"></td>
-                                    <td><input class="form-control tdtext-fld-height" value="@list.Username" type="text"><input type="hidden" class="id" value="@list.Id" /></td>
-                                    <td><input class="form-control tdtext-fld-height" value="@list.Password" type="text"></td>
-                                    <td><input class="form-control tdtext-fld-height" readonly value="@list.UpdatedDate.ToString().Split(' ')[0]" type="text"></td>
-                                    <td><input class="form-control tdtext-fld-height" value="@list.UserRole" type="text"></td>
-                                    <td><input class="form-control tdtext-fld-height" value="@list.Address" type="text"></td>
-                                         @if (Session["Admin"] != null)
-                                         {
-                                             <td style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                         }
-                                    
-                                </tr> 
+                                foreach (var list in Model)
+                                {
+                                    <tr>
+                                        <td style="background:#d5d6d9; text-align:center;"></td>
+                                        <td><input class="form-control tdtext-fld-height" value="@list.Name" type="text"><input type="hidden" class="id" value="@list.Id" /></td>
+                                        <td><input class="form-control tdtext-fld-height" value="@list.CNIC" type="text"></td>
+                                        <td><input class="form-control tdtext-fld-height" readonly value="@list.Phone" type="text"></td>
+                                        <td><input class="form-control tdtext-fld-height" value="@list.ChecqueNo" type="text"></td>
+                                        <td><input class="form-control tdtext-fld-height" value="@list.Address" type="text"></td>
+                                        @if (Session["Admin"] != null)
+                                        {
+                                            <td style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                        }
+
+                                    </tr>
+                                } 
                                 }
-                              
+                            
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </section>
@@ -133,18 +125,18 @@
         debugger;
         $('.AddNew').show();
         $('.Search').remove();
-        disabledAll();
+        
     });
     $('.AddNew').on('click', function () {
-       
-        enabledAll();
+
+        
         $('.Save').show();
         $('.AddNew').hide();
     });
         $('.Save').on('click', function () {
             var _Id = "#SimpleData";
             var validationFrm = "SimpleData";
-            var Url = '@Url.Action("AddUser", "User")';
+            var Url = '@Url.Action("AddDO_Info", "User")';
             SaveDataSingleObj(_Id, validationFrm, Url);
             $('.Save').hide();
             $('.AddNew').show();
@@ -153,7 +145,7 @@
     $('.Delete').on('click', function () {
         debugger;
         var id = $('.id').val().trim();
-        var Url = '@Url.Action("DeleteUser", "User")';
+        var Url = '@Url.Action("DeleteDO", "User")';
         DeleteRecord(id, Url);
     });
 </script>

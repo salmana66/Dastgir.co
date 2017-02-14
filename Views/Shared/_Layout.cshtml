@@ -246,12 +246,7 @@
                     <li class="treeview">
                         <a href="#"> <i class="fa fa-newspaper-o"></i> <span>Users</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                         <ul class="treeview-menu">
-                            @if (Session["userrole"] != null) { 
-                            if(Session["userrole"].ToString()=="Admin")
-                            {
-                               <li><a href="/User/Users"><i class="fa fa-angle-right"></i> Users Management</a></li>
-                            }
-                            }
+                           <li><a href="/User/Users"><i class="fa fa-angle-right"></i> Users Management</a></li>
                         </ul>
                     </li>
                 </ul>
