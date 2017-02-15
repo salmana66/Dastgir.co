@@ -38,7 +38,22 @@
     <script src="/Contents/bootstrap/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/Contents/js/app.min.js"></script>
-    
+    <script>
+        function SetActive(levelOne, levelTwo, levelThree) {
+            $("#" + levelOne).addClass('active');
+
+            if (levelTwo != "")
+                $("#" + levelTwo).addClass('active');
+
+            if (levelThree != "")
+                $("#" + levelThree).addClass('active');
+        }
+        $(document).ready(function () {
+
+            debugger;
+
+        });
+    </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -81,7 +96,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
+                        @*<li class="dropdown messages-menu">
                             <!-- Menu toggle button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-envelope-o"></i> <span class="label label-success">4</span> </a>
                             <ul class="dropdown-menu">
@@ -155,35 +170,30 @@
                                 </li>
                                 <li class="footer"> <a href="#">View all tasks</a> </li>
                             </ul>
-                        </li>
+                        </li>*@
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                @*<img src="img/user2-160x160.jpg" class="user-image" alt="User Image">*@
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">Fazal Miran</span>
+                                <span class="hidden-xs">@Session["username"]</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                    <p> Alexander Pierce - Web Developer <small>Member since Nov. 2012</small> </p>
+                                    @*<img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">*@
+                                    <p><small> Pakistan Telecommunication</small> </p>
                                 </li>
                                 <!-- Menu Body -->
                                 <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center"> <a href="#">Followers</a> </div>
-                                        <div class="col-xs-4 text-center"> <a href="#">Sales</a> </div>
-                                        <div class="col-xs-4 text-center"> <a href="#">Friends</a> </div>
-                                    </div>
-                                    <!-- /.row -->
+                                   
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left"> <a href="#" class="btn btn-default btn-flat">Profile</a> </div>
-                                    <div class="pull-right"> <a href="#" class="btn btn-default btn-flat">Sign out</a> </div>
+                                   
+                                    <div class="pull-right"> <a href="/Home/Logout" class="btn btn-default btn-flat">Sign out</a> </div>
                                 </li>
                             </ul>
                         </li>
@@ -199,54 +209,50 @@
                 <!-- Sidebar user panel -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li class="treeview">
+                    <li class="treeview" id="workflow">
                         <a href="#"> <i class="fa fa-newspaper-o"></i> <span>Products</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                         <ul class="treeview-menu">
-                            <li><a href="/Products/AddProduct"><i class="fa fa-angle-right"></i> Products</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Modify Product Details</a></li>
+                            <li id="products"><a href="/Products/AddProduct"><i class="fa fa-angle-right"></i> Products</a></li>
+                            <li id="productdetails"><a href="#"><i class="fa fa-angle-right"></i> Modify Product Details</a></li>
                         </ul>
                     </li>
-                    <li class="active treeview">
+                    <li class=" treeview" id="purchases">
                         <a href="#"> <i class="fa fa-dashboard"></i> <span><b>Purchases</b></span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                         <ul class="treeview-menu">
-                            <li><a href="/Purchases/PurchaseLoad"><i class="fa fa-angle-right"></i> Load</a></li>
-                            <li><a href="/Purchases/Cards"><i class="fa fa-angle-right"></i> Balance Cards</a></li>
-                            <li><a href="/Purchases/SimCards"><i class="fa fa-angle-right"></i> SIM Cards</a></li>
-                            <li><a href="/Purchases/PurchaseProducts"><i class="fa fa-angle-right"></i> Other Products</a></li>
+                            <li id="loadp"><a href="/Purchases/PurchaseLoad"><i class="fa fa-angle-right"></i> Load</a></li>
+                            <li id="cardp"><a href="/Purchases/Cards"><i class="fa fa-angle-right"></i> Balance Cards</a></li>
+                            <li id="simp"><a href="/Purchases/SimCards"><i class="fa fa-angle-right"></i> SIM Cards</a></li>
+                            <li id="otherp"><a href="/Purchases/PurchaseProducts"><i class="fa fa-angle-right"></i> Other Products</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
+                    @*<li class="treeview" id="sales">
                         <a href="#"> <i class="fa fa-briefcase"></i> <span>Sales</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Load</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Balance Cards</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Jazz Cash</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> SIM Cards</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Blank Sim Cards</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Mobiles</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Evo</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Accessories</a></li>
+                            <li id="loadsale"><a href="Sales"><i class="fa fa-angle-right"></i> Load</a></li>
+                            <li id="cardsale"><a href="/Purchases/Cards"><i class="fa fa-angle-right"></i> Balance Cards</a></li>
+                            <li id="simsale"><a href="/Purchases/SimCards"><i class="fa fa-angle-right"></i> SIM Cards</a></li>
+                            <li id="othersale"><a href="/Purchases/PurchaseProducts"><i class="fa fa-angle-right"></i> Other Products</a></li>
                         </ul>
-                    </li>
+                    </li>*@
                    
-                    <li class="treeview">
+                    <li class="treeview" id="distributors">
                         <a href="#"> <i class="fa fa-beer"></i> <span>Distributors <b>(DO)</b></span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                         <ul class="treeview-menu do">
-                            <li><a href="/User/AddDO"><i class="fa fa-angle-right"></i>DO Management</a></li>
-                         
+                            <li id="domanage"><a href="/User/AddDO"><i class="fa fa-angle-right"></i>DO Management</a></li>
+                            <li id="dosales"><a href="/Sales/ProductDistributor"><i class="fa fa-angle-right"></i>Sales to DO</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
+                    <li class="treeview" id="bank">
                         <a href="#"> <i class="fa fa-bug"></i> <span>Accounts</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                         <ul class="treeview-menu bank">
-                            <li><a href="/User/AddBanks"><i class="fa fa-angle-right"></i> Banks</a></li>
-                            <li><a href="/User/BankTrans"><i class="fa fa-angle-right"></i> Bank Transactions</a></li>
+                            <li id="bankmanage"><a href="/User/AddBanks"><i class="fa fa-angle-right"></i> Banks</a></li>
+                            <li id="banktrans"><a href="/User/BankTrans"><i class="fa fa-angle-right"></i> Bank Transactions</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
+                    <li class="treeview" id="Users">
                         <a href="#"> <i class="fa fa-newspaper-o"></i> <span>Users</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                         <ul class="treeview-menu">
-                           <li><a href="/User/Users"><i class="fa fa-angle-right"></i> Users Management</a></li>
+                           <li id="usermanage"><a href="/User/Users"><i class="fa fa-angle-right"></i> Users Management</a></li>
                         </ul>
                     </li>
                 </ul>

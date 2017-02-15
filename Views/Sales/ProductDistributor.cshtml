@@ -1,0 +1,344 @@
+﻿@{
+    ViewBag.Title = "ProductDistributor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    @{
+
+        Html.RenderPartial("_AlertBox");
+    }
+    <div class="panel panel-default custom-height">
+        <div class="panel-heading">
+            <div class="pull-left">
+                <h3 class="panel-title">Products Sales To DO </h3>
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-minus"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-window-maximize"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-close"></i> </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row SimpleData" id="SimpleData">
+                <div id="form1">
+                    <div class="col-md-6">
+                        <section class="panel panel-default no-background-bg">
+                            <div class="panel-body ">
+                                <div class="" id="">
+                                    <form class="form-horizontal ng-pristine ng-valid" action="/Purchases/AddBalance" id="" role="form">
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Date</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height required" required id="" name="Date" type="date">
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select DO</label>
+                                            <div class="col-sm-9 no-gutters">
+                                                <span class="ui-select">
+                                                    <select name="DistributorId" required class="DistributorId required" id="DistributorId">
+                                                        <option value="">--Select--</option>
+                                                        @foreach (var list in ViewBag.dolist)
+                                                        {
+                                                            <option value="@list.Id">@list.Name</option>
+                                                        }
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select Product</label>
+                                            <div class="col-sm-9 no-gutters">
+                                                <span class="ui-select">
+                                                    <select name="ProductId" class="ProductId " id="ProductId">
+                                                        <option value="">--Select--</option>
+                                                        @foreach (var list in ViewBag.Products)
+                                                        {
+                                                            <option value="@list.Id">@list.ItemName</option>
+                                                        }
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--end form-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Mobile Load</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" required id="load" placeholder="LoadAmount.." name="MobileLoad" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Mobicash</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" id="load" placeholder="LoadAmount.." name="JazzCash" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Rs:100-Card</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Card100" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Rs:600-Card</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Card600" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Rs:1000-Card</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Card1000" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Sim-Rs:140</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Sim140" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Blank Sims</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height " id="" placeholder="enter quantity.." name="BlankSim" type="text">
+                                            </div>
+                                        </div>
+
+                                        <!--End Form Group-->
+                                    </form>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <section class="panel panel-default no-background-bg">
+                            <div class="panel-body ">
+                                <div class="" id="">
+                                    <form class="form-horizontal ng-pristine ng-valid" action="/Purchases/AddBalance" id="form1" role="form">
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Load Profit %</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric " value="0.0" readonly id="pp" placeholder="Load Profit.." name="Profit" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Total</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" id="Total" placeholder="Total.." name="Total" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Payment</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" id="payment" placeholder="Payment.." name="Payment" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Profit</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" id="Profit" placeholder="Profit.." name="Profit" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" id="Balance" placeholder="Balance.." name="Balance" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Description</label>
+                                            <div class="col-sm-9 no-gutters">
+                                                <textarea class="form-control text-fld-height" id="" placeholder="Description.." name="Description"></textarea>
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <!--End Form Group-->
+                                    </form>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-md-12 form2" style="display:none;">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="form-horizontal ng-pristine ng-valid form2" id="form2" role="form" style="display:none;">
+                            <div class="form-group form-group-margin">
+                                <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Date</label>
+                                <div class="col-sm-3 no-gutters">
+                                    <input class="form-control text-fld-height" type="date" id="PDate" name="Date" />
+                                </div>
+                            </div>
+
+                            <div class="form-group form-group-margin">
+                                <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select DO</label>
+                                <div class="col-sm-9 no-gutters">
+                                    <span class="ui-select">
+                                        <select name="DistributorId1" required class="DistributorId1 required" id="DistributorId1">
+                                            <option value="">--Select--</option>
+                                            @foreach (var list in ViewBag.dolist)
+                                            {
+                                                <option value="@list.Id">@list.Name</option>
+                                            }
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-success SearchLoad btn-sm pull-left" type="button" style="margin-top: 20px;"><span class="glyphicon glyphicon-search "></span> Filter Result</button>
+                        </form>
+                    </div>
+                    <br /><br />
+                    <div class="table-responsive" style="height:auto;">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    
+                                    <th style="width:150px;">Date</th>
+                                    <th style="width:150px;">Distributor</th>
+                                    <th style="width:150px;">Product</th>
+                                    <th style="width:150px;">Load<b> (Mobile)</b></th>
+                                    <th style="width:150px;">Card100</th>
+                                    <th style="width:150px;">Card600</th>
+                                    <th style="width:150px;">Card1000</th>
+                                    <th style="width:150px;">Sim140</th>
+                                    <th style="width:150px;">Jazz Cash</th>
+                                    <th style="width:150px;">Blank Sim</th>
+                                    <th style="width:150px;">Total Amount</th>
+                                    <th style="width:150px;">Payment</th>
+                                    <th style="width:150px;">Profit</th>
+                                    <th style="width:150px;">Balance</th>
+                                    <th style="width:150px;">Description</th>
+                                    <th class="action">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="AddGrid"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+</section>
+<!-- /.content -->
+<script>
+    //saving the data
+    $(document).ready(function () {
+        debugger;
+        $('.AddNew').show();
+        $('.Save').show();
+        $('.Search').show();
+    });
+    $('.AddNew').on('click', function () {
+        $('.Save').show();
+        
+        $('#form1').slideDown();
+        $('.form2').slideUp();
+    });
+        $('.Save').on('click', function () {
+            var _Id = "#SimpleData";
+            var validationFrm = "SimpleData";
+            var Url = '@Url.Action("Add_DOSales", "Sales")';
+            SaveDataSingleObj(_Id, validationFrm, Url);
+
+        });
+
+    $('.Delete').on('click', function () {
+        debugger;
+        var id = $('.id').val().trim();
+        var Url = '@Url.Action("DeleteUser", "User")';
+        DeleteRecord(id, Url);
+    });
+    $('.Search').on('click', function () {
+        $('#form1').slideUp();
+        
+        $('.form2').slideDown();
+        $('.Save').hide();
+    });
+    //$('#load').on('change', function () {
+    //    var profitPer = parseFloat($('#profit').val());
+    //    var load = parseFloat($('#load').val());
+    //    var payment = load * profitPer;
+    //    $('#payment').val(payment);
+    //});
+    //$('#profit').on('change', function () {
+    //    var profitPer = parseFloat($('#profit').val());
+    //    var load = parseFloat($('#load').val());
+    //    var payment = load * profitPer;
+    //    $('#payment').val(payment);
+    //});
+    $('.SearchLoad').live('click', function () {
+        debugger;
+        var date = $('#PDate').val();
+        var doID = $('#DistributorId1 :selected').val();
+        var url = '@Url.Action("GetDOSalesDetails", "Sales")';
+        var Data = JSON.stringify({ date: date, doID: doID });
+        var data = showGridData(Data, url);
+        var GetData = JSON.parse(data);
+        $('.AddGrid').html('');
+        for (var i = 0; i <= GetData.length; i++)
+        {
+
+            var date1 = GetData[i].Date.split("T");
+            var date2 = date1[0].split("-");
+            var date = date2[2] + "/" + date2[1] + "/" + date2[0];
+            var row = "<tr>"
+                                   
+                                    + '<td><input style="width:120px;" class="form-control tdtext-fld-height" value="' + date + '" type="text"><input type="hidden" class="id" value="' + GetData[i].Id + '" /></td>'
+                                     +'<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="'+GetData[i].Distributor.Name+'" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Product.ItemName + '" type="text"></td>'
+                                    + '<td><input style="width:120px;" class="form-control tdtext-fld-height"  value="' + GetData[i].MobileLoad + '" type="text"></td>'
+                                    + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Card100 + '" type="text"></td>'
+                                    + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Card600 + '" type="text"></td>'
+                                    + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Card1000 + '" type="text"></td>'
+                                    + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Sim140 + '" type="text"></td>'
+                                    + '<td><input style="width:120px;" class="form-control tdtext-fld-height"  value="' + GetData[i].JazzCash + '" type="text"></td>'
+                                    + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].BlankSim + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Total + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Payment + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Profit + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Balance + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Description + '" type="text"></td>'
+                                    +'<td class="action" style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>'
+
+
+            "</tr>";
+            $('.AddGrid').append(row);
+        }
+        @*@{if(Session["userrole"] != null)
+          {
+              if(Session["userrole"].ToString() == "Admin")
+              {
+                  <text> $('.action').hide();</text>
+              }
+          }
+
+              }*@
+    });
+    SetActive("distributors", "dosales", "dosales");
+</script>

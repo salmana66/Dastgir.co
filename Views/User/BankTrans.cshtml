@@ -215,15 +215,15 @@
     //    $('.balance').val(payable-payment);
     //});
     $('.SearchLoad').live('click', function () {
-        debugger;
+       
         var date = $('#PDate').val();
         var pid = $('#BankId1 :selected').val();
         var url = '@Url.Action("GetBankTrans", "User")';
         var Data = JSON.stringify({ date: date, pid: pid });
-        debugger;
+        
         var data = showGridData(Data, url);
         var GetData = JSON.parse(data);
-        debugger;
+      
         $('.AddGrid').html('');
         for (var i = 0; i <= GetData.length; i++)
         {
@@ -271,5 +271,5 @@
         var opening = data.ClosingBalance;
         $('#opening').val(opening);
     });
-    
+    SetActive("bank", "banktrans", "banktrans");
 </script>

@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="cb6ff1b549924258bcea89aeae999ef7" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="MobiDBModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="MobiDBModel.UserInfo" Width="1.5" PointX="2.375" PointY="0.5" />
         <EntityTypeShape EntityType="MobiDBModel.Distributor" Width="1.5" PointX="4" PointY="2.875" />
         <EntityTypeShape EntityType="MobiDBModel.Sale" Width="1.5" PointX="0.5" PointY="4.75" />
@@ -20,6 +19,8 @@
         <EntityTypeShape EntityType="MobiDBModel.Bank" Width="1.5" PointX="9.375" PointY="1.25" />
         <EntityTypeShape EntityType="MobiDBModel.BankTran" Width="1.5" PointX="11.625" PointY="0.75" />
         <AssociationConnector Association="MobiDBModel.FK_BankTrans_Bank" />
+        <AssociationConnector Association="MobiDBModel.FK_ProductDistributor_Distributors" />
+        <AssociationConnector Association="MobiDBModel.FK_ProductDistributor_Products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
