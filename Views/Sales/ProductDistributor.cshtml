@@ -37,7 +37,7 @@
                                             <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select DO</label>
                                             <div class="col-sm-9 no-gutters">
                                                 <span class="ui-select">
-                                                    <select name="DistributorId" required class="DistributorId required" id="DistributorId">
+                                                    <select name="DistributorId" required class="DistributorId required required" id="DistributorId">
                                                         <option value="">--Select--</option>
                                                         @foreach (var list in ViewBag.dolist)
                                                         {
@@ -52,12 +52,14 @@
                                             <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select Product</label>
                                             <div class="col-sm-9 no-gutters">
                                                 <span class="ui-select">
-                                                    <select name="ProductId" class="ProductId " id="ProductId">
+                                                    <select name="ProductId" class="ProductId notSelect" id="ProductId">
                                                         <option value="">--Select--</option>
                                                         @foreach (var list in ViewBag.Products)
                                                         {
                                                             <option value="@list.Id">@list.ItemName</option>
+                                                            
                                                         }
+                                                     
                                                     </select>
                                                 </span>
                                             </div>
@@ -74,40 +76,60 @@
                                         <div class="form-group form-group-margin">
                                             <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Mobicash</label>
                                             <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric" id="load" placeholder="LoadAmount.." name="JazzCash" type="text">
+                                                <input class="form-control text-fld-height Numeric" id="Mobiload" placeholder="LoadAmount.." name="JazzCash" type="text">
                                             </div>
                                         </div>
                                         <!--End Form Group-->
 
                                         <div class="form-group form-group-margin">
-                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Rs:100-Card</label>
-                                            <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Card100" type="text">
+                                            <label for="inputEmail3" class="col-sm-2 no-gutters control-label">Rs:100-Card</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="c100" name="Card100" type="text">
+                                            </div>
+                                            <label for="inputEmail3" class="col-sm-1 no-gutters control-label">Price</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric"  placeholder="enter price..." id="p100" name="" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group form-group-margin">
-                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Rs:600-Card</label>
-                                            <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Card600" type="text">
+                                            <label for="inputEmail3" class="col-sm-2 no-gutters control-label">Rs:600-Card</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="c600" name="Card600" type="text">
+                                            </div>
+                                            <label for="inputEmail3" class="col-sm-1 no-gutters control-label">Price</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric"  placeholder="enter price..." id="p600" name="" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group form-group-margin">
-                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Rs:1000-Card</label>
-                                            <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Card1000" type="text">
+                                            <label for="inputEmail3" class="col-sm-2 no-gutters control-label">Rs:1000-Card</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="c1000" name="Card1000" type="text">
+                                            </div>
+                                            <label for="inputEmail3" class="col-sm-1 no-gutters control-label">Price</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric"  placeholder="enter price..." id="p1000" name="" type="text">
                                             </div>
                                         </div>
                                         <!--End Form Group-->
                                         <div class="form-group form-group-margin">
-                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Sim-Rs:140</label>
-                                            <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="" name="Sim140" type="text">
+                                            <label for="inputEmail3" class="col-sm-2 no-gutters control-label">Sim-Rs:140</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" placeholder="enter quantity..." id="s140" name="Sim140" type="text">
+                                            </div>
+                                            <label for="inputEmail3" class="col-sm-1 no-gutters control-label">Price</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric"  placeholder="enter price..." id="p140" name="" type="text">
                                             </div>
                                         </div>
                                         <div class="form-group form-group-margin">
-                                            <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Blank Sims</label>
-                                            <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height " id="" placeholder="enter quantity.." name="BlankSim" type="text">
+                                            <label for="inputPassword3" class="col-sm-2 no-gutters control-label">Blank Sims</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric" id="bsim" placeholder="enter quantity.." name="BlankSim" type="text">
+                                            </div>
+                                            <label for="inputEmail3" class="col-sm-1 no-gutters control-label">Price</label>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric"  placeholder="enter price..." id="psim" name="" type="text">
                                             </div>
                                         </div>
 
@@ -126,37 +148,60 @@
                                         <div class="form-group form-group-margin">
                                             <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Load Profit %</label>
                                             <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric " value="0.0" readonly id="pp" placeholder="Load Profit.." name="Profit" type="text">
+                                                <input class="form-control text-fld-height Numeric " value="0.0"  id="profit" placeholder="Load Profit.." name="Profit" type="text">
                                             </div>
                                         </div>
                                         <!--End Form Group-->
                                         <!--End Form Group-->
                                         <div class="form-group form-group-margin">
-                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Total</label>
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Load Recievable</label>
                                             <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric required" id="Total" placeholder="Total.." name="Total" type="text">
+                                                <input class="form-control text-fld-height Numeric required" value="0.0" id="total" placeholder="Load Recievable.." name="LoadReceivable" type="text">
                                             </div>
                                         </div>
                                         <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Cards Recievable</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" value="0.0" id="cardtotal" placeholder="Cards Recievable.." name="CardReceivable" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Sim Recievable</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" value="0.0" id="simtotal" placeholder="Sim Recievable.." name="SimReceivable" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">JazzCash Recievable</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" value="0.0" id="JazzCashtotal" placeholder="JazzCash Recievable.." name="JazzCashReceivable" type="text">
+                                            </div>
+                                        </div>
+                                        <!--End Form Group-->
+                                        <div class="form-group form-group-margin">
+                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Total Recievable</label>
+                                            <div class="col-sm-6 no-gutters">
+                                                <input class="form-control text-fld-height Numeric required" id="totalreceiveable" placeholder="Total Recievable.." name="TotalPayable" type="text">
+                                            </div>
+                                        </div>
                                         <!--End Form Group-->
                                         <div class="form-group form-group-margin">
                                             <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Payment</label>
                                             <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric required" id="payment" placeholder="Payment.." name="Payment" type="text">
+                                                <input class="form-control text-fld-height Numeric required" id="payment" placeholder="Payment.." name="PaymentRecieved" type="text">
                                             </div>
                                         </div>
                                         <!--End Form Group-->
-                                        <div class="form-group form-group-margin">
-                                            <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Profit</label>
-                                            <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric required" id="Profit" placeholder="Profit.." name="Profit" type="text">
-                                            </div>
-                                        </div>
+                                       
                                         <!--End Form Group-->
                                         <div class="form-group form-group-margin">
                                             <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
                                             <div class="col-sm-6 no-gutters">
-                                                <input class="form-control text-fld-height Numeric required" id="Balance" placeholder="Balance.." name="Balance" type="text">
+                                                <input class="form-control text-fld-height Numeric required" id="balance" placeholder="Balance.." name="Balance" type="text">
                                             </div>
                                         </div>
                                         <!--End Form Group-->
@@ -218,15 +263,16 @@
                                     <th style="width:150px;">Distributor</th>
                                     <th style="width:150px;">Product</th>
                                     <th style="width:150px;">Load<b> (Mobile)</b></th>
-                                    <th style="width:150px;">Card100</th>
-                                    <th style="width:150px;">Card600</th>
-                                    <th style="width:150px;">Card1000</th>
-                                    <th style="width:150px;">Sim140</th>
                                     <th style="width:150px;">Jazz Cash</th>
+                                    <th style="width:150px;">Card100</th>
+                                    <th style="width:150px;">Sim140</th>
                                     <th style="width:150px;">Blank Sim</th>
-                                    <th style="width:150px;">Total Amount</th>
-                                    <th style="width:150px;">Payment</th>
-                                    <th style="width:150px;">Profit</th>
+                                    <th style="width:150px;">Load Payable</th>
+                                    <th style="width:150px;">JazzCash Payable</th>
+                                    <th style="width:150px;">Sims Payable</th>
+                                    <th style="width:150px;">Cards Payable</th>
+                                    <th style="width:150px;">Total Payable</th>
+                                    <th style="width:150px;">Paid Payment</th>
                                     <th style="width:150px;">Balance</th>
                                     <th style="width:150px;">Description</th>
                                     <th class="action">Action</th>
@@ -280,20 +326,113 @@
         $('.form2').slideDown();
         $('.Save').hide();
     });
-    //$('#load').on('change', function () {
-    //    var profitPer = parseFloat($('#profit').val());
-    //    var load = parseFloat($('#load').val());
-    //    var payment = load * profitPer;
-    //    $('#payment').val(payment);
-    //});
-    //$('#profit').on('change', function () {
-    //    var profitPer = parseFloat($('#profit').val());
-    //    var load = parseFloat($('#load').val());
-    //    var payment = load * profitPer;
-    //    $('#payment').val(payment);
-    //});
-    $('.SearchLoad').live('click', function () {
+    $('#load').on('keyup', function () {
+        var profitPer = parseFloat($('#profit').val());
+        var load = parseFloat($('#load').val());
+        var payment =parseFloat((load * profitPer)/100);
+        $('#total').val(load - payment);
+    });
+    $('#profit').on('keyup', function () {
+        var profitPer = parseFloat($('#profit').val());
+        var load = parseFloat($('#load').val());
+        var payment = parseFloat((load * profitPer) / 100);
+        $('#total').val(load - payment);
+    });
+
+    $('#payment').on('keyup', function () {
         debugger;
+        var TotalReceiveable = parseFloat($('#totalreceiveable').val());
+        var payment = parseFloat($('#payment').val());
+        var diff = parseFloat(TotalReceiveable - payment);
+        $('#balance').val(diff);
+    });
+
+
+    $('#Mobiload').on('keyup', function () {
+        var JazzCashtotal = parseFloat($('#Mobiload').val());
+       
+        $('#JazzCashtotal').val(JazzCashtotal);
+    });
+
+    $('#c100 , #p100 , #c600 , #p600 , #c1000 , #p1000').on('keyup', function () {
+        debugger;
+        var c100 = parseFloat($('#c100').val());
+        var p100 = parseFloat($('#p100').val());
+        var payable100 = parseFloat(c100 * p100);
+
+        var c600 = parseFloat($('#c600').val());
+        var p600 = parseFloat($('#p600').val());
+        var payable600 = parseFloat(c600 * p600);
+
+        var c1000 = parseFloat($('#c1000').val());
+        var p1000 = parseFloat($('#p1000').val());
+        var payable1000 = parseFloat(c1000 * p1000);
+        if ((isNaN(payable1000) || payable1000 == "" || payable1000 == null) && (isNaN(payable600) || payable600 == "" || payable600 == null))
+        {
+            $('#cardtotal').val(payable100);
+        }
+        else {
+
+        }
+    });
+
+    $('#s140 , #p140 , #bsim, #psim ').on('keyup', function () {
+        debugger;
+        var c140 = parseFloat($('#s140').val());
+        var p140 = parseFloat($('#p140').val());
+        var payable140 = parseFloat(c140 * p140);
+
+        var bsim = parseFloat($('#bsim').val());
+        var psim = parseFloat($('#psim').val());
+        var payableSim = parseFloat(bsim * psim);
+
+        //var c1000 = parseFloat($('#c1000').val());
+        //var p1000 = parseFloat($('#p1000').val());
+        //var payable1000 = parseFloat(c1000 * p1000);
+        if ((isNaN(payable140) || payable140 == "" || payable140 == null) && (isNaN(payableSim) || payableSim == "" || payableSim == null)) {
+            $('#simtotal').val("0");
+        }
+        else if ((isNaN(payable140) || payable140 == "" || payable140 == null))
+        {
+                $('#simtotal').val(payableSim);
+        }
+        else if ((isNaN(payableSim) || payableSim == "" || payableSim == null)) {
+            $('#simtotal').val(payable140);
+        }
+        else {
+            $('#simtotal').val(payable140 + payableSim);
+        }
+    });
+
+
+    $('#totalreceiveable').focus(function () {
+        debugger;
+        var SimsTotal = parseFloat($('#simtotal').val());
+        var CardTotal = parseFloat($('#cardtotal').val());
+        var LaodTotal = parseFloat($('#total').val());
+        var JazzCashTotal = parseFloat($('#JazzCashtotal').val());
+        if(isNaN(SimsTotal) && isNaN(CardTotal) && isNaN(LaodTotal))
+        {
+            $('#totalreceiveable').val(JazzCashTotal);
+        }
+        else if (isNaN(JazzCashTotal) && isNaN(CardTotal) && isNaN(LaodTotal))
+        {
+            $('#totalreceiveable').val(SimsTotal);
+        }
+        else if (isNaN(JazzCashTotal) && isNaN(SimsTotal) && isNaN(LaodTotal)) {
+            $('#totalreceiveable').val(CardTotal);
+        }
+        else if (isNaN(JazzCashTotal) && isNaN(SimsTotal) && isNaN(CardTotal)) {
+            $('#totalreceiveable').val(LaodTotal);
+        }
+        else if (!isNaN(JazzCashTotal) && !isNaN(SimsTotal) && !isNaN(CardTotal) && !isNaN(LaodTotal)) {
+            $('#totalreceiveable').val(LaodTotal + JazzCashTotal + SimsTotal + CardTotal);
+        }
+        
+    });
+
+    $('.SearchLoad').live('click', function () {
+        
         var date = $('#PDate').val();
         var doID = $('#DistributorId1 :selected').val();
         var url = '@Url.Action("GetDOSalesDetails", "Sales")';
@@ -311,17 +450,19 @@
                                    
                                     + '<td><input style="width:120px;" class="form-control tdtext-fld-height" value="' + date + '" type="text"><input type="hidden" class="id" value="' + GetData[i].Id + '" /></td>'
                                      +'<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="'+GetData[i].Distributor.Name+'" type="text"></td>'
-                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Product.ItemName + '" type="text"></td>'
+                                    //+ '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Product.ItemName + '" type="text"></td>'
+                                    + '<td><input type="text" class="form-control tdtext-fld-height" readonly/></td>'
                                     + '<td><input style="width:120px;" class="form-control tdtext-fld-height"  value="' + GetData[i].MobileLoad + '" type="text"></td>'
+                                      + '<td><input style="width:120px;" class="form-control tdtext-fld-height"  value="' + GetData[i].JazzCash + '" type="text"></td>'
                                     + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Card100 + '" type="text"></td>'
-                                    + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Card600 + '" type="text"></td>'
-                                    + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Card1000 + '" type="text"></td>'
                                     + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Sim140 + '" type="text"></td>'
-                                    + '<td><input style="width:120px;" class="form-control tdtext-fld-height"  value="' + GetData[i].JazzCash + '" type="text"></td>'
                                     + '<td><input style="width:100px;" class="form-control tdtext-fld-height"  value="' + GetData[i].BlankSim + '" type="text"></td>'
-                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Total + '" type="text"></td>'
-                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Payment + '" type="text"></td>'
-                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Profit + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].LoadReceivable + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].JazzCashReceivable + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].SimReceivable + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].CardReceivable + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].TotalPayable + '" type="text"></td>'
+                                    + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].PaymentRecieved + '" type="text"></td>'
                                     + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Balance + '" type="text"></td>'
                                     + '<td><input style="width:150px;" class="form-control tdtext-fld-height"  value="' + GetData[i].Description + '" type="text"></td>'
                                     +'<td class="action" style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>'

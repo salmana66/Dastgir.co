@@ -1,7 +1,7 @@
 ﻿function ValdateForm(frmID) {
     var errorCount = 0;
     debugger;
-    $('#' + frmID).find("select,.required:not('.hidden')").each(function (e) {
+    $('#' + frmID).find(".required:not('.hidden,.notSelect')").each(function (e) {
         debugger;
         if ($(this).val().trim() === "") {
             $(this).focus();

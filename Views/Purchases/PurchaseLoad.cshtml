@@ -21,7 +21,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <section class="panel panel-default no-background-bg">
                         <div class="panel-body ">
                             <div class="simpledata" id="SimpleData">
@@ -32,41 +32,47 @@
                                             <input class="form-control text-fld-height required" required id="" name="Date" type="date">
                                         </div>
                                     </div>
+                                  
+                                    <!--End Form Group-->
                                     <div class="form-group form-group-margin">
-                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance Type</label>
-                                        <div class="col-sm-9 no-gutters">
-                                            <span class="ui-select">
-                                                <select name="BalanceType" required class="BalanceType required" id="BalanceType">
-                                                    <option value="">--Select--</option>
-                                                    <option value="MobileLoad">Mobile Load</option>
-                                                    <option value="Mobicash">Mobicash</option>
-                                                </select>
-                                            </span>
+                                        <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Purchase Load Amount</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height Numeric required" required id="load" placeholder="LoadAmount.." name="LoadAmount" type="text">
                                         </div>
                                     </div>
                                     <!--End Form Group-->
                                     <div class="form-group form-group-margin">
-                                        <label for="inputPassword3" class="col-sm-3 no-gutters control-label">Load</label>
-                                        <div class="col-sm-6 no-gutters">
-                                            <input class="form-control text-fld-height required" required id="load" placeholder="LoadAmount.." name="LoadAmount" type="text">
-                                        </div>
-                                    </div>
-                                    <!--End Form Group-->
-                                    <div class="form-group form-group-margin">
-                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Profit %</label>
-                                        <div class="col-sm-6 no-gutters">
-                                            <input class="form-control text-fld-height required" id="profit" placeholder="Enter your profit Percentage.." name="Mobile" type="text">
+                                        <label for="inputEmail3" class="col-sm-4 no-gutters control-label">Franchise Retailer Profit %</label>
+                                        <div class="col-sm-5 no-gutters">
+                                            <input class="form-control text-fld-height Numeric required" id="profit" placeholder="Enter your profit Percentage.." name="CompanyRetailerProfit" type="text">
                                         </div>
                                     </div>
                                     <!--End Form Group-->
                                     <div class="form-group form-group-margin">
                                         <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Payment</label>
                                         <div class="col-sm-6 no-gutters">
-                                            <input class="form-control text-fld-height required" id="payment" placeholder="Payment.." name="Payment" type="text">
+                                            <input class="form-control text-fld-height Numeric required" id="payment" placeholder="Payment.." name="Payment" type="text">
                                         </div>
                                     </div>
                                     <!--End Form Group-->
-
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Company Profit %</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height Numeric required" id="cprofit" placeholder="Company Profit %.." name="CompanyProfitPercent" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Transfer To DO</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height Numeric" id="transfertodO" placeholder="Transfer To DO.." name="TransferToDO" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Company Profit Amount</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height Numeric" readonly id="CompanyProfitAmount" placeholder="Company Profit Amount.." name="CompanyProfitAmount" type="text">
+                                        </div>
+                                    </div>
 
                                     <div class="form-group form-group-margin">
                                         <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Description</label>
@@ -86,18 +92,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group form-group-margin">
-                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance Type</label>
-                                    <div class="col-sm-9 no-gutters">
-                                        <span class="ui-select">
-                                            <select name="BalanceType1" required class="BalanceType1 required" id="BalanceType1">
-                                                <option value="">--Select--</option>
-                                                <option value="MobileLoad">Mobile Load</option>
-                                                <option value="Mobicash">Mobicash</option>
-                                            </select>
-                                        </span>
-                                    </div>
-                                </div>
+                               
                                 <button class="btn btn-success SearchLoad btn-sm pull-left" type="button" style="margin-top: 20px;"><span class="glyphicon glyphicon-search "></span> Filter Result</button>
                             </form>
                         </div>
@@ -113,11 +108,14 @@
                                 <tr>
                                     <th style=" text-align:center;"><i class="fa fa-plus" aria-hidden="true"></i></th>
                                     <th>Date</th>
-                                    <th>Type</th>
                                     <th>Load<b> (Amount)</b></th>
-                                    <th>Payment</th>
+                                    <th>Franchise + Retailer Profit</th>
+                                    <th>Franchise Profit %</th>
+                                    <th>Franchise Profit Amount</th>
+                                    <th>Transfer To DO</th>
+                                    <th>Payment To Company</th>
                                     <th>Description</th>
-                                    <th class ="action">Action</thclass>
+                                    <th class ="action">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="AddGrid">
@@ -164,7 +162,7 @@
     $('.Delete').on('click', function () {
         debugger;
         var id = $('.id').val().trim();
-        var Url = '@Url.Action("DeleteUser", "User")';
+        var Url = '@Url.Action("DeleteMobileLoad", "Purchases")';
         DeleteRecord(id, Url);
     });
     $('.Search').on('click', function () {
@@ -176,21 +174,36 @@
     $('#load').on('change', function () {
         var profitPer = parseFloat($('#profit').val());
         var load = parseFloat($('#load').val());
-        var payment = load * profitPer;
-        $('#payment').val(payment);
+        var payment = parseFloat((load * profitPer)/100);
+        $('#payment').val(load-payment);
     });
     $('#profit').on('change', function () {
         var profitPer = parseFloat($('#profit').val());
         var load = parseFloat($('#load').val());
-        var payment = load * profitPer;
-        $('#payment').val(payment);
+        var payment = parseFloat((load * profitPer) / 100);
+        $('#payment').val(load - payment);
     });
+
+    $('#cprofit').on('keyup', function () {
+        debugger;
+        var profitPer = parseFloat($('#cprofit').val());
+        var load = parseFloat($('#load').val());
+        var payment = parseFloat((load * profitPer) / 100);
+        $('#CompanyProfitAmount').val(payment);
+
+        var coprofitPer = parseFloat($('#profit').val());
+        var retailerPPercent = parseFloat(coprofitPer - profitPer);
+        var DoTransfer = parseFloat((load * retailerPPercent) / 100);
+        $('#transfertodO').val(load - DoTransfer);
+
+    });
+
     $('.SearchLoad').live('click', function () {
         debugger;
         var date = $('#PDate').val();
-        var btype = $('#BalanceType1 :selected').val();
+       
         var url = '@Url.Action("GetLoad", "Purchases")';
-        var Data = JSON.stringify({ date: date, btype: btype });
+        var Data = JSON.stringify({ date: date });
         var GetData = showGridData(Data, url);
         $('.AddGrid').html('');
         for (var i = 0; i <= GetData.length; i++)
@@ -205,8 +218,12 @@
             var row = "<tr>"
                                     +'<td style="background:#d5d6d9; text-align:center;"></td>'
                                     + '<td><input class="form-control tdtext-fld-height" value="' + date + '" type="text"><input type="hidden" class="id" value="' + GetData[i].Id + '" /></td>'
-                                    +'<td><input class="form-control tdtext-fld-height"  value="'+GetData[i].BalanceType+'" type="text"></td>'
-                                    +'<td><input class="form-control tdtext-fld-height"  value="'+GetData[i].LoadAmount+'" type="text"></td>'
+                                   
+                                    + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].LoadAmount + '" type="text"></td>'
+                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].CompanyRetailerProfit + '" type="text"></td>'
+                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].CompanyProfitPercent + '" type="text"></td>'
+                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].CompanyProfitAmount + '" type="text"></td>'
+                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].TransferToDO + '" type="text"></td>'
                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].Payment + '" type="text"></td>'
                                      + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].Description + '" type="text"></td>'
                                     
