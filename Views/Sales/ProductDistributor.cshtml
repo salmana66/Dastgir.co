@@ -347,7 +347,8 @@
         var TotalReceiveable = parseFloat($('#totalreceiveable').val());
         var payment = parseFloat($('#payment').val());
         var diff = parseFloat(TotalReceiveable - payment);
-        $('#balance').val(diff);
+        var PrevBalance = parseFloat($('.PrevBalance').val());
+        $('#balance').val(diff + PrevBalance);
     });
 
 
@@ -491,7 +492,9 @@
         var url = '@Url.Action("GetDOBalance", "Sales")';
         var Data = JSON.stringify({ doID: doID });
         var data = showGridData(Data, url);
-        var prevBalance = data.Balance;
+        var obj = JSON.parse(data);
+        debugger;
+        var prevBalance = obj.Balance;
         $('.PrevBalance').val(prevBalance);
     });
 </script>
