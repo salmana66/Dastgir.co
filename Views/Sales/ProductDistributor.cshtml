@@ -37,7 +37,7 @@
                                             <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select DO</label>
                                             <div class="col-sm-9 no-gutters">
                                                 <span class="ui-select">
-                                                    <select name="DistributorId" required class="DistributorId required required" id="DistributorId">
+                                                    <select name="DistributorId" required class="DistributorId required required getbalance" id="DistributorId">
                                                         <option value="">--Select--</option>
                                                         @foreach (var list in ViewBag.dolist)
                                                         {
@@ -200,8 +200,11 @@
                                         <!--End Form Group-->
                                         <div class="form-group form-group-margin">
                                             <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
-                                            <div class="col-sm-6 no-gutters">
+                                            <div class="col-sm-3 no-gutters">
                                                 <input class="form-control text-fld-height Numeric required" id="balance" placeholder="Balance.." name="Balance" type="text">
+                                            </div>
+                                            <div class="col-sm-3 no-gutters">
+                                                <input class="form-control text-fld-height Numeric notrequired PrevBalance" id="PrevBalance" placeholder="Previous Balance.." name="PrevBalance" type="text">
                                             </div>
                                         </div>
                                         <!--End Form Group-->
@@ -482,4 +485,13 @@
               }*@
     });
     SetActive("distributors", "dosales", "dosales");
+
+    $('.getbalance').on('change', function () {
+        var doID = $('.getbalance :selected').val();
+        var url = '@Url.Action("GetDOBalance", "Sales")';
+        var Data = JSON.stringify({ doID: doID });
+        var data = showGridData(Data, url);
+        var prevBalance = data.Balance;
+        $('.PrevBalance').val(prevBalance);
+    });
 </script>
