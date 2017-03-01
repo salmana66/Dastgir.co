@@ -2,7 +2,9 @@
     $.LoadingOverlay("show");
 });
 $(document).ajaxStop(function () {
-    $.LoadingOverlay("hide");
+    setTimeout(function () {
+        $.LoadingOverlay("hide");
+    }, 3000);
 });
 
 function ValdateForm(frmID) {
