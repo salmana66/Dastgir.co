@@ -4,7 +4,7 @@
 $(document).ajaxStop(function () {
     setTimeout(function () {
         $.LoadingOverlay("hide");
-    }, 3000);
+    }, 1500);
 });
 
 function ValdateForm(frmID) {
