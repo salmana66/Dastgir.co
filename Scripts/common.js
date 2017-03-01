@@ -1,4 +1,11 @@
-﻿function ValdateForm(frmID) {
+﻿$(document).ajaxStart(function () {
+    $.LoadingOverlay("show");
+});
+$(document).ajaxStop(function () {
+    $.LoadingOverlay("hide");
+});
+
+function ValdateForm(frmID) {
     var errorCount = 0;
     debugger;
     $('#' + frmID).find(".required:not('.hidden,.notSelect')").each(function (e) {
