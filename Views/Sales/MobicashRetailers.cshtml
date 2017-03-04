@@ -1,0 +1,153 @@
+﻿@model List<Mob7183.Models.Retailer>
+@{
+    ViewBag.Title = "MobicashRetailers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    @{
+
+        Html.RenderPartial("_AlertBox");
+    }
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="pull-left">
+                <h3 class="panel-title"> Retailers</h3>
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-minus"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-window-maximize"></i> </button>
+                <button type="button" class="btn2 btn-primary"> <i class="fa fa-close"></i> </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <section class="panel panel-default no-background-bg">
+                        <div class="panel-body SimpleData" id="SimpleData">
+                            <form class="form-horizontal ng-pristine ng-valid" role="form">
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Retailer Name</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height" required id="" placeholder="Retailer Name.." name="Name" type="text">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                              
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Phone</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height" id="" placeholder="Phone.." name="Phone" type="text">
+                                    </div>
+                                </div>
+                                <!--End Form Group-->
+                                <!--End Form Group-->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select DO</label>
+                                    <div class="col-sm-9 no-gutters">
+                                        <span class="ui-select">
+                                            <select name="DistributorId" required class="DistributorId required required getbalance" id="DistributorId">
+                                                <option value="">--Select--</option>
+                                                @foreach (var list in ViewBag.dolist)
+                                                {
+                                                    <option value="@list.Id">@list.Name</option>
+                                                }
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Shop Name</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height" id="" placeholder="Shop Name.." name="ShopName" type="text">
+                                    </div>
+                                </div>
+
+                                <!--End Form Group-->
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive" style="min-height:200px !important;">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style=" text-align:center;"><i class="fa fa-plus" aria-hidden="true"></i></th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Distributor</th>
+                                    <th>Shop Name </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var list in Model)
+                                    {
+                                        <tr>
+                                            <td style="background:#d5d6d9; text-align:center;">@list.Id</td>
+                                            <td><input class="form-control tdtext-fld-height" value="@list.Name" type="text"><input type="hidden" class="id" value="@list.Id" /></td>
+                                            <td><input class="form-control tdtext-fld-height" readonly value="@list.Phone" type="text"></td>
+                                            <td><input class="form-control tdtext-fld-height" value="@list.Distributor.Name" type="text"></td>
+                                            <td><input class="form-control tdtext-fld-height" value="@list.ShopName" type="text"></td>
+                                            @if (Session["Admin"] != null)
+                                            {
+                                                <td style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                            }
+
+                                        </tr>
+                                    }
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+</section>
+<!-- /.content -->
+<script>
+    //saving the data
+    $(document).ready(function () {
+        debugger;
+        $('.AddNew').hide();
+        $('.Search').remove();
+        $('.Save').show();
+
+    });
+    $('.AddNew').on('click', function () {
+
+
+        $('.Save').show();
+        $('.AddNew').hide();
+    });
+        $('.Save').on('click', function () {
+            var _Id = "#SimpleData";
+            var validationFrm = "SimpleData";
+            var Url = '@Url.Action("AddRetailer", "Sales")';
+            SaveDataSingleObj(_Id, validationFrm, Url);
+          
+        });
+
+    $('.Delete').on('click', function () {
+        debugger;
+        var id = $('.id').val().trim();
+        var Url = '@Url.Action("DeleteDO", "User")';
+        DeleteRecord(id, Url);
+    });
+    SetActive("mobicash", "retailers", "retailers");
+</script>

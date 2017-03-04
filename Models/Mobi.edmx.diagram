@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="MobiDBModel.Distributor" Width="1.5" PointX="4" PointY="2.875" />
         <EntityTypeShape EntityType="MobiDBModel.Sale" Width="1.5" PointX="0.5" PointY="4.75" />
         <EntityTypeShape EntityType="MobiDBModel.StockItem" Width="1.5" PointX="5.625" PointY="0.75" />
-        <EntityTypeShape EntityType="MobiDBModel.Card" Width="1.5" PointX="3.875" PointY="5.75" />
+        <EntityTypeShape EntityType="MobiDBModel.Card" Width="1.5" PointX="3.25" PointY="6.375" />
         <EntityTypeShape EntityType="MobiDBModel.SIM" Width="1.5" PointX="7.375" PointY="4" />
         <EntityTypeShape EntityType="MobiDBModel.Product" Width="1.5" PointX="9.125" PointY="4.875" />
         <EntityTypeShape EntityType="MobiDBModel.Purchase" Width="1.5" PointX="10.625" PointY="8" />
@@ -22,6 +22,12 @@
         <EntityTypeShape EntityType="MobiDBModel.ProductDistributor" Width="1.5" PointX="13.375" PointY="4.5" />
         <AssociationConnector Association="MobiDBModel.FK_ProductDistributor_Distributors" />
         <AssociationConnector Association="MobiDBModel.FK_ProductDistributor_Products" />
+        <EntityTypeShape EntityType="MobiDBModel.DistributorBalance" Width="1.5" PointX="6.25" PointY="8.125" />
+        <AssociationConnector Association="MobiDBModel.FK_DistributorBalance_Distributors" />
+        <EntityTypeShape EntityType="MobiDBModel.RetailerMobicash" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="MobiDBModel.Retailer" Width="1.5" PointX="7.375" PointY="11.75" />
+        <AssociationConnector Association="MobiDBModel.FK_Retailers_Distributors" />
+        <AssociationConnector Association="MobiDBModel.FK_RetailerMobicash_Distributors" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
