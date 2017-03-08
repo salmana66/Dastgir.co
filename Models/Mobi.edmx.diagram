@@ -24,10 +24,12 @@
         <AssociationConnector Association="MobiDBModel.FK_ProductDistributor_Products" />
         <EntityTypeShape EntityType="MobiDBModel.DistributorBalance" Width="1.5" PointX="6.25" PointY="8.125" />
         <AssociationConnector Association="MobiDBModel.FK_DistributorBalance_Distributors" />
-        <EntityTypeShape EntityType="MobiDBModel.RetailerMobicash" Width="1.5" PointX="5.375" PointY="11.75" />
         <EntityTypeShape EntityType="MobiDBModel.Retailer" Width="1.5" PointX="7.375" PointY="11.75" />
         <AssociationConnector Association="MobiDBModel.FK_Retailers_Distributors" />
+        <EntityTypeShape EntityType="MobiDBModel.MobiCashRetailersRecord" Width="1.5" PointX="7.625" PointY="15.125" />
+        <EntityTypeShape EntityType="MobiDBModel.RetailerMobicash" Width="1.5" PointX="6.25" PointY="19.125" />
         <AssociationConnector Association="MobiDBModel.FK_RetailerMobicash_Distributors" />
+        <AssociationConnector Association="MobiDBModel.FK_MobiCashRetailersRecord_RetailerMobicash" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
