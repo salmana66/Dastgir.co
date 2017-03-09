@@ -80,7 +80,7 @@
                                     <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Select DO</label>
                                     <div class="col-sm-9 no-gutters">
                                         <span class="ui-select">
-                                            <select name="DistributorId1" required class="DistributorId1 required required getbalance" id="DistributorId">
+                                            <select name="DistributorId1" required class="DistributorId1 required getbalance" id="DistributorId1">
                                                 <option value="">--Select--</option>
                                                 @foreach (var list in ViewBag.dolist)
                                                 {
@@ -90,7 +90,27 @@
                                         </span>
                                     </div>
                                 </div>
+                                <!--     RESULTS*******      -->
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Total Load</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height required" value="0" required id="tload" name="TLoad" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Total Back</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height required" value="0" required id="tback" name="TBack" type="text">
+                                    </div>
+                                </div>
 
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height " value="0" id="bal" name="Balance" type="text">
+                                    </div>
+                                </div>
+                                <!--  ******   END*******      -->
                                 <button class="btn btn-success SearchLoad btn-sm pull-left" type="button" style="margin-top: 20px;"><span class="glyphicon glyphicon-search "></span> Filter Result</button>
                             </form>
                         </div>
@@ -227,29 +247,37 @@
         var payment = load * profitPer;
         $('#payment').val(payment);
     });
-    $('.SearchLoad11').live('click', function () {
+    $('.SearchLoad').live('click', function () {
         debugger;
         var date = $('#PDate').val();
-        var ctype = $('#cardtype1 :selected').val();
-        var url = '@Url.Action("GetCards", "Purchases")';
-        var Data = JSON.stringify({ date: date, ctype: ctype });
+        var doId = $('#DistributorId1 :selected').val();
+        var url = '@Url.Action("GetMobiRecord", "Sales")';
+        var Data = JSON.stringify({ date: date, doId: doId });
         var GetData = showGridData(Data, url);
-        $('.AddGrid').html('');
-        for (var i = 0; i <= GetData.length; i++) {
+        var obj = JSON.parse(GetData);
 
-            var currentTime = new Date(parseInt(GetData[i].Date.substr(6)));
-            var month = currentTime.getMonth() + 1;
-            var day = currentTime.getDate();
-            var year = currentTime.getFullYear();
-            var date = day + "/" + month + "/" + year;
+        $('#bal').val(obj.Balance);
+        $('#tback').val(obj.TBack);
+        $('#tload').val(obj.TLoad);
+
+        var RetailerRecords = GetRetailerRecords(obj.Id);
+
+        $('.AddGrid').html('');
+        for (var i = 0; i <= RetailerRecords.length; i++) {
+
+            //var currentTime = new Date(parseInt(GetData[i].Date.substr(6)));
+            //var month = currentTime.getMonth() + 1;
+            //var day = currentTime.getDate();
+            //var year = currentTime.getFullYear();
+            //var date = day + "/" + month + "/" + year;
             debugger;
             var row = "<tr>"
                                     + '<td style="background:#d5d6d9; text-align:center;"></td>'
-                                    + '<td><input class="form-control tdtext-fld-height" value="' + date + '" type="text"><input type="hidden" class="id" value="' + GetData[i].Id + '" /></td>'
-                                    + '<td><input class="form-control tdtext-fld-height"  value="' + "Rs " + GetData[i].CardType + '" type="text"></td>'
-                                    + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].Qty + '" type="text"></td>'
-                                    + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].PurchasePrice + '" type="text"></td>'
-                                     + '<td><input class="form-control tdtext-fld-height"  value="' + GetData[i].SalePrice + '" type="text"></td>'
+                                  //  + '<td><input class="form-control tdtext-fld-height" value="' + date + '" type="text"><input type="hidden" class="id" value="' + GetData[i].Id + '" /></td>'
+                                    + '<td><input readonly class="form-control tdtext-fld-height"  value="' + RetailerRecords[i].Name + '" type="text"></td>'
+                                    + '<td><input readonly class="form-control tdtext-fld-height"  value="' + RetailerRecords[i].Phone + '" type="text"></td>'
+                                    + '<td><input readonly class="form-control tdtext-fld-height"  value="' + RetailerRecords[i].LoadSent + '" type="text"></td>'
+                                    + '<td><input readonly class="form-control tdtext-fld-height"  value="' + RetailerRecords[i].LoadBack + '" type="text"></td>'
 
                                         + '<td class="action" style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>'
 
@@ -257,15 +285,16 @@
             "</tr>";
             $('.AddGrid').append(row);
         }
-        @*@{if(Session["userrole"] != null)
-          {
-              if(Session["userrole"].ToString() == "Admin")
-              {
-                  <text> $('.action').hide();</text>
-              }
-          }
-
-              }*@
+      
     });
+
+    function GetRetailerRecords(RecId)
+    {
+        var url = '@Url.Action("GetRetailerRecord", "Sales")';
+        var Data = JSON.stringify({ RecId: RecId });
+        var GetData = showGridData(Data, url);
+        var obj = JSON.parse(GetData);
+        return obj;
+    }
     SetActive("purchases", "cardsp", "cardsp");
 </script>

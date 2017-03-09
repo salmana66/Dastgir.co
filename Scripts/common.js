@@ -297,7 +297,7 @@ function GetJSONFromControlsTwoObject($container, grid, isInserting) {
     var para = '';
     var objectData = {};
     if ($container.length > 0) { //change
-        $container.find('input[type=text],input[type=password],input[type=checkbox],input[type=hidden]').not('.notSelect').each(function () {
+        $container.find('input[type=text],input[type=password],input[type=date],input[type=checkbox],input[type=hidden]').not('.notSelect').each(function () {
             debugger;
             type = $(this).attr('type');
             var ID = $(this).attr('name');
@@ -320,6 +320,9 @@ function GetJSONFromControlsTwoObject($container, grid, isInserting) {
                         }
                         break;
                     case "hidden":
+                        value = $.trim($(this).val());
+                        break;
+                    case "date":
                         value = $.trim($(this).val());
                         break;
                     case "password":
