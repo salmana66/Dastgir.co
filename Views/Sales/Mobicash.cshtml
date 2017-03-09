@@ -49,20 +49,20 @@
                                     <div class="form-group form-group-margin">
                                         <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Total Load</label>
                                         <div class="col-sm-6 no-gutters">
-                                            <input class="form-control text-fld-height required" value="0" required id="" name="TLoad" type="text">
+                                            <input class="form-control text-fld-height required" value="0" required id="TotalLoad" name="TLoad" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group form-group-margin">
                                         <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Total Back</label>
                                         <div class="col-sm-6 no-gutters">
-                                            <input class="form-control text-fld-height required" value="0" required id="" name="TBack" type="text">
+                                            <input class="form-control text-fld-height required" value="0" required id="TotalBack" name="TBack" type="text">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group form-group-margin">
                                         <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
                                         <div class="col-sm-6 no-gutters">
-                                            <input class="form-control text-fld-height " value="0"  id="" name="Balance" type="text">
+                                            <input class="form-control text-fld-height " value="0" id="TotalBalance" name="Balance" type="text">
                                         </div>
                                     </div>
                                     <!--End Form Group-->
@@ -177,7 +177,44 @@
         debugger;
         $('.AddNew').show();
         $('.Save').show();
-        disabledAll();
+        $('.Search').show();
+        SetActive("mobicash", "retailersmobicash", "retailersmobicash");
+    });
+
+    $('#TotalLoad').on('focus', function () {
+
+        $('#TotalLoad').val("0");
+        $('#TotalBack').val("0");
+
+        $('.AddGrid2  > tr').each(function (index , row)
+        {
+            debugger;
+            var val = parseFloat($(this).find('.loadsent').val());
+            var bval = parseFloat($('#TotalLoad').val());
+            var fval = parseFloat(val + bval);
+            if (isNaN(fval))
+            {
+                $('#TotalLoad').val(bval);
+            }
+            else
+            {
+                $('#TotalLoad').val(fval);
+            }
+
+            var val1 = parseFloat($(this).find('.loadback').val());
+            var bval1 = parseFloat($('#TotalBack').val());
+            var fval1 = parseFloat(val1 + bval1);
+            if (isNaN(fval1)) {
+                $('#TotalBack').val(bval1);
+            }
+            else {
+                $('#TotalBack').val(fval1);
+            }
+           
+        });
+        var totalLoad = parseFloat($('#TotalLoad').val());
+        var totalBack = parseFloat($('#TotalBack').val());
+        $('#TotalBalance').val(totalLoad - totalBack);
     });
 
     $('#DistributorId').live('change', function () {
@@ -193,8 +230,8 @@
                                   + '<td style="background:#d5d6d9; text-align:center;">' + (parseInt(i)+1) + '</td>'
                                   + '<td><input id="" name="Name" readonly class="form-control tdtext-fld-height" value="' + GetData[i].Name + '" type="text"><input type="hidden" id="" class="id" value="' + GetData[i].Id + '" /></td>'
                                   + '<td><input id="" name="Phone" readonly class="form-control tdtext-fld-height"  value="' + GetData[i].Phone + '" type="text"></td>'
-                                  + '<td><input id="" name="LoadSent" class="form-control Numeric tdtext-fld-height"  value="" type="text"></td>'
-                                  + '<td><input id="" name="LoadBack" class="form-control Numeric tdtext-fld-height"  value="" type="text"></td>'
+                                  + '<td><input id="loadsent" name="LoadSent" class="form-control loadsent Numeric tdtext-fld-height"  value="" type="text"></td>'
+                                  + '<td><input id="loadback" name="LoadBack" class="form-control loadback Numeric tdtext-fld-height"  value="" type="text"></td>'
                                   + '<td class="action" style="text-align:center;"><a href="#" class="Delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>'
 
 
@@ -217,7 +254,6 @@
 
     $('.AddNew').on('click', function () {
         $('.Save').show();
-        enabledAll();
         $('#form1 , .form1').slideDown();
         $('.form2').slideUp();
     });
@@ -235,18 +271,7 @@
         $('.form2').slideDown();
         $('.Save').hide();
     });
-    $('#load').on('change', function () {
-        var profitPer = parseFloat($('#profit').val());
-        var load = parseFloat($('#load').val());
-        var payment = load * profitPer;
-        $('#payment').val(payment);
-    });
-    $('#profit').on('change', function () {
-        var profitPer = parseFloat($('#profit').val());
-        var load = parseFloat($('#load').val());
-        var payment = load * profitPer;
-        $('#payment').val(payment);
-    });
+   
     $('.SearchLoad').live('click', function () {
         debugger;
         var date = $('#PDate').val();
@@ -296,5 +321,6 @@
         var obj = JSON.parse(GetData);
         return obj;
     }
-    SetActive("purchases", "cardsp", "cardsp");
+
+    
 </script>
