@@ -58,7 +58,12 @@
                                             <input class="form-control text-fld-height required" value="0" required id="TotalBack" name="TBack" type="text">
                                         </div>
                                     </div>
-                                    
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Payment (Cash)</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height required" value="0" required id="Payment" name="Payment" type="text">
+                                        </div>
+                                    </div>
                                     <div class="form-group form-group-margin">
                                         <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
                                         <div class="col-sm-6 no-gutters">
@@ -115,6 +120,12 @@
                                     <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Balance</label>
                                     <div class="col-sm-6 no-gutters">
                                         <input class="form-control text-fld-height " value="0" id="bal" name="Balance" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-margin">
+                                    <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Payment</label>
+                                    <div class="col-sm-6 no-gutters">
+                                        <input class="form-control text-fld-height " value="0" id="pay" name="Paym" type="text">
                                     </div>
                                 </div>
                                 <!--  ******   END*******      -->
@@ -220,9 +231,10 @@
            
         });
         var Prevbalance = parseFloat($('#PrevBalance').val());
+        var Payment = parseFloat($('#Payment').val());
         var totalLoad = parseFloat($('#TotalLoad').val());
         var totalBack = parseFloat($('#TotalBack').val());
-        $('#TotalBalance').val((totalLoad+Prevbalance) - totalBack);
+        $('#TotalBalance').val((totalLoad+Prevbalance) - (totalBack + Payment));
     });
 
     $('#DistributorId').live('change', function () {
@@ -297,6 +309,7 @@
         $('#bal').val(obj.Balance);
         $('#tback').val(obj.TBack);
         $('#tload').val(obj.TLoad);
+        $('#pay').val(obj.Payment);
 
         var RetailerRecords = GetRetailerRecords(obj.Id);
 
