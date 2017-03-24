@@ -66,6 +66,13 @@
                                         </div>
                                     </div>
                                     <!--End Form Group-->
+                                    <div class="form-group form-group-margin">
+                                        <label for="inputEmail3" class="col-sm-3 no-gutters control-label">Previous Balance</label>
+                                        <div class="col-sm-6 no-gutters">
+                                            <input class="form-control text-fld-height " value="0" id="PrevBalance" name="" type="text">
+                                        </div>
+                                    </div>
+                                    <!--End Form Group-->
                                 </form>
                             </div>
                             <form class="form-horizontal ng-pristine ng-valid form2" id="form2" role="form" style="display:none;">
@@ -212,9 +219,10 @@
             }
            
         });
+        var Prevbalance = parseFloat($('#PrevBalance').val());
         var totalLoad = parseFloat($('#TotalLoad').val());
         var totalBack = parseFloat($('#TotalBack').val());
-        $('#TotalBalance').val(totalLoad - totalBack);
+        $('#TotalBalance').val((totalLoad+Prevbalance) - totalBack);
     });
 
     $('#DistributorId').live('change', function () {
@@ -224,6 +232,11 @@
         var DataList = showGridData(Data, url);
         var GetData = JSON.parse(DataList);
         $('.AddGrid2').html('');
+        var url1 = '@Url.Action("GetMobicashBalance", "Sales")';
+        var Data1 = JSON.stringify({ doID: id });
+        var DataList1 = showGridData(Data1, url1);
+        var GetData1 = JSON.parse(DataList1);
+        $('#PrevBalance').val(GetData1.PrevBalance);
 
         for (var i = 0; i < GetData.length ; i++) {
             var row = "<tr class='NewRow'>"
@@ -238,8 +251,8 @@
             "</tr>";
             $('.AddGrid2').append(row);
         }
-
-
+        debugger;
+        
     });
 
     $('.Save').on('click', function () {
